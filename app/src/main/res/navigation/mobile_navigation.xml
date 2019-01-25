@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/mobile_navigation" app:startDestination="@id/destination_home">
+
+  <fragment android:id="@+id/destination_home" android:name="com.amqo.navigationcontrollerapp.HomeFragment"
+            android:label="Home" tools:layout="@layout/fragment_home"/>
+  <fragment android:id="@+id/destination_camera" android:name="com.amqo.navigationcontrollerapp.CameraFragment"
+            android:label="Camera" tools:layout="@layout/fragment_camera">
+    <action android:id="@+id/next_action" app:destination="@id/destination_photos"/>
+  </fragment>
+  <fragment android:id="@+id/destination_photos" android:name="com.amqo.navigationcontrollerapp.PhotosFragment"
+            android:label="Photos" tools:layout="@layout/fragment_photos">
+    <action android:id="@+id/next_action" app:destination="@id/destination_home"/>
+    <argument android:name="numOfPhotos" app:argType="integer" android:defaultValue="0"/>
+  </fragment>
+  <fragment android:id="@+id/destination_settings" android:name="com.amqo.navigationcontrollerapp.SettingsFragment"
+            android:label="Settings" tools:layout="@layout/fragment_settings"/>
+</navigation>
